@@ -1,19 +1,5 @@
 console.log('Simon Says');
 
-//TIMER
-
-let count = 0;
-const countdown = document.getElementById('countdown');
-
-const timer = setInterval(() => {
-    count++;
-    countdown.innerText = count;
-
-    if (count >= 30) {
-        clearInterval(timer);
-        alert("Tempo scaduto!");
-    }
-}, 1000);
 
 //NUMERI RANDOM
 
@@ -24,4 +10,28 @@ for (let i = 0; i < 5; i++) {
 
 const randomNumbersElement = document.getElementById('numbers-list');
 randomNumbersElement.innerText = randomNumbers.join(' - ');
+
+//NASCONDIAMO I NUMERI A FACCIAMO APPARIRE GLI INPUT
+//TIMER
+
+let count = 0;
+const countdown = document.getElementById('countdown');
+const form = document.getElementById('answers-form');
+const inputs = document.getElementById('input-group');
+
+const timer = setInterval(() => {
+    count++;
+    countdown.textContent = count;
+
+    if (count === 30) {
+        randomNumbersElement.classList.add('d-none')
+        form.classList.remove('d-none')
+        clearInterval(timer); 
+    }
+}, 1000);
+
+
+
+
+
 
